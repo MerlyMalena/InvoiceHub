@@ -1,6 +1,5 @@
-// ==========================================================================
-// js/calculations.js - Lógica Matemática y Cálculos del Sistema
-// ==========================================================================
+
+// Lógica matemática y cálculos del sistema
 
 // Cálculo del subtotal de una sola fila de producto
 function calculateRow(row) {
@@ -72,20 +71,19 @@ function calculateTotals(rows, currency, isTaxApplied, inputTaxPercent, generalD
     let totalFinal = 0;
 
     if (applicationOrder === 'antes') {
-        // Regla: Aplicar descuento antes del impuesto
+        // aplicar descuento antes del impuesto
         montoDescuentoGeneral = subtotalBase * (generalDiscount / 100);
         baseImponible = Math.max(0, subtotalBase - montoDescuentoGeneral);
         montoImpuesto = baseImponible * (taxPercent / 100);
         totalFinal = baseImponible + montoImpuesto;
     } else {
-        // Regla: Aplicar descuento después del impuesto
+        // aplicar descuento después del impuesto
         montoImpuesto = subtotalBase * (taxPercent / 100);
         const totalAntesDescuentoGeneral = subtotalBase + montoImpuesto;
         montoDescuentoGeneral = totalAntesDescuentoGeneral * (generalDiscount / 100);
         totalFinal = totalAntesDescuentoGeneral - montoDescuentoGeneral;
     }
 
-    // El total nunca debe ser negativo
     if (totalFinal < 0) {
         totalFinal = 0;
     }
@@ -104,3 +102,4 @@ function calculateTotals(rows, currency, isTaxApplied, inputTaxPercent, generalD
         rowDataList
     };
 }
+

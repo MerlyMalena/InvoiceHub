@@ -1,6 +1,4 @@
-// ==========================================================================
-// js/dom.js - Manipulación Directa del DOM (Cero innerHTML)
-// ==========================================================================
+// DOM directo
 
 // Crear una celda de tabla con input y contenedor de error
 function createInputCell(type, name, className, attrs = {}, withError = true) {
@@ -96,7 +94,7 @@ function updateStatusOptions(typeSelect, statusSelect) {
     }
 }
 
-// Construcción visual del documento generado (cotización o factura)
+// Construcción visual del documento generado
 function renderGeneratedDocument(container, formData, summaryData) {
     container.replaceChildren();
 
@@ -104,7 +102,7 @@ function renderGeneratedDocument(container, formData, summaryData) {
     const docWrapper = document.createElement('article');
     docWrapper.className = 'generated-document-sheet';
 
-    // 1. Encabezado
+    // Header
     const headerElem = document.createElement('header');
     headerElem.className = 'doc-header';
 
@@ -143,7 +141,6 @@ function renderGeneratedDocument(container, formData, summaryData) {
     headerElem.appendChild(businessInfo);
     docWrapper.appendChild(headerElem);
 
-    // 2. Metadatos (Cliente y Documento)
     const metaSection = document.createElement('section');
     metaSection.className = 'doc-meta-section';
 
@@ -279,7 +276,7 @@ function renderGeneratedDocument(container, formData, summaryData) {
     tableContainer.appendChild(table);
     docWrapper.appendChild(tableContainer);
 
-    // 4. Resumen de Totales
+    // Resumen de Totales
     const summarySection = document.createElement('section');
     summarySection.className = 'doc-summary-section';
 
@@ -311,7 +308,7 @@ function renderGeneratedDocument(container, formData, summaryData) {
     summarySection.appendChild(summaryBox);
     docWrapper.appendChild(summarySection);
 
-    // 5. Pie de página
+    // Pie de página
     const footerElem = document.createElement('footer');
     footerElem.className = 'doc-footer';
 
@@ -328,7 +325,7 @@ function renderGeneratedDocument(container, formData, summaryData) {
     container.appendChild(docWrapper);
 }
 
-// Reinicio del formulario tras generar el documento
+// Reset
 function resetFormState(refs) {
     refs.businessName.value = '';
     refs.businessRnc.value = '';
@@ -374,3 +371,4 @@ function resetFormState(refs) {
     document.querySelectorAll('.error-message').forEach(span => span.textContent = '');
     document.querySelectorAll('.input-error').forEach(input => input.classList.remove('input-error'));
 }
+

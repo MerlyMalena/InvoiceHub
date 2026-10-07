@@ -1,8 +1,6 @@
-// ==========================================================================
-// js/utils.js - Funciones Utilitarias y Helpers
-// ==========================================================================
+// Funciones Utilitarias y Helpers
 
-// Formatear montos con dos decimales y separador de miles: "DOP 1,500.00"
+// Formatear montos con dos decimales y separador de miles
 function formatMoney(amount, currency) {
     const num = Number(amount) || 0;
     const formattedNumber = num.toLocaleString('en-US', {
@@ -65,3 +63,4 @@ function isValidUrl(urlString) {
         return false;
     }
 }
+

@@ -1,11 +1,9 @@
-// ==========================================================================
 // js/validations.js - Reglas de Validación del Formulario
-// ==========================================================================
 
 function validateInvoiceForm(refs) {
     let isValid = true;
 
-    // 1. Datos del Negocio
+    //  Datos del Negocio
     if (!refs.businessName.value.trim()) {
         setError(refs.businessName, 'error-business-name', 'Debe ingresar el nombre del negocio.');
         isValid = false;
@@ -51,7 +49,7 @@ function validateInvoiceForm(refs) {
         clearError(refs.businessLogo, 'error-business-logo');
     }
 
-    // 2. Datos del Cliente
+    //  Datos del Cliente
     if (!refs.clientName.value.trim()) {
         setError(refs.clientName, 'error-client-name', 'Debe ingresar el nombre del cliente.');
         isValid = false;
@@ -90,7 +88,7 @@ function validateInvoiceForm(refs) {
         clearError(refs.clientAddress, 'error-client-address');
     }
 
-    // 3. Datos Generales
+    //  Datos Generales
     if (!refs.docType.value) {
         setError(refs.docType, 'error-document-type', 'El tipo de documento es requerido.');
         isValid = false;
@@ -139,7 +137,7 @@ function validateInvoiceForm(refs) {
         clearError(refs.currency, 'error-currency');
     }
 
-    // 4. Productos o Servicios
+    //  Productos o Servicios
     const rows = refs.productsList.querySelectorAll('.product-row');
     if (rows.length === 0) {
         setError(null, 'error-products-table', 'Debe agregar al menos un producto o servicio válido.');
@@ -191,7 +189,7 @@ function validateInvoiceForm(refs) {
         }
     });
 
-    // 5. Impuestos y Descuentos
+    //  Impuestos y Descuentos
     if (refs.applyTax.checked) {
         const taxVal = refs.taxPercentage.value.trim();
         if (taxVal === '') {
@@ -232,3 +230,4 @@ function validateInvoiceForm(refs) {
 
     return isValid;
 }
+

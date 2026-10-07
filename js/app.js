@@ -1,6 +1,5 @@
-// ==========================================================================
-// js/app.js - Orquestador Principal y Conexión de Eventos
-// ==========================================================================
+
+//  Conexión de eventos y funciones
 
 document.addEventListener('DOMContentLoaded', () => {
     // Referencias a los elementos del formulario
