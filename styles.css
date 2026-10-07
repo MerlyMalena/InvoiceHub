@@ -1,0 +1,571 @@
+/* ==========================================================================
+   InvoiceHub - Estilos Profesionales y Responsivos
+   ========================================================================== */
+
+:root {
+    --primary: #1e40af;
+    --primary-hover: #1d4ed8;
+    --primary-light: #eff6ff;
+    --secondary: #0f766e;
+    --danger: #dc2626;
+    --danger-hover: #b91c1c;
+    --danger-light: #fef2f2;
+    --bg-main: #f8fafc;
+    --surface: #ffffff;
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+    --text-muted: #94a3b8;
+    --border: #cbd5e1;
+    --border-light: #e2e8f0;
+    --radius: 8px;
+    --radius-lg: 12px;
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    line-height: 1.5;
+    padding-bottom: 4rem;
+}
+
+header {
+    background: linear-gradient(135deg, var(--primary), #1e3a8a);
+    color: #ffffff;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    box-shadow: var(--shadow);
+    margin-bottom: 2rem;
+}
+
+header h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+main {
+    max-width: 1050px;
+    margin: 0 auto;
+    padding: 0 1.25rem;
+}
+
+/* ==========================================================================
+   FORMULARIO Y SECCIONES
+   ========================================================================== */
+
+#invoice-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+}
+
+.form-section {
+    background: var(--surface);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    box-shadow: var(--shadow-sm);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.25rem;
+}
+
+.form-section legend {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--primary);
+    padding: 0 0.5rem;
+    border-bottom: 2px solid var(--primary-light);
+    width: 100%;
+    margin-bottom: 0.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.form-group label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+.form-group input,
+.form-group select {
+    padding: 0.65rem 0.85rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    font-size: 0.95rem;
+    color: var(--text-primary);
+    background-color: #fff;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+.form-group input:disabled {
+    background-color: var(--bg-main);
+    color: var(--text-muted);
+    cursor: not-allowed;
+    border-color: var(--border-light);
+}
+
+.checkbox-group {
+    flex-direction: row;
+    align-items: center;
+    gap: 0.6rem;
+    margin-top: 1.5rem;
+}
+
+.checkbox-group input[type="checkbox"] {
+    width: 1.2rem;
+    height: 1.2rem;
+    cursor: pointer;
+    accent-color: var(--primary);
+}
+
+.checkbox-group label {
+    margin: 0;
+    cursor: pointer;
+    font-size: 0.95rem;
+}
+
+.error-message {
+    color: var(--danger);
+    font-size: 0.78rem;
+    font-weight: 500;
+    min-height: 1rem;
+    display: block;
+    margin-top: 0.2rem;
+}
+
+.input-error {
+    border-color: var(--danger) !important;
+    background-color: var(--danger-light) !important;
+}
+
+.input-error:focus {
+    box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.15) !important;
+}
+
+/* ==========================================================================
+   TABLA DE PRODUCTOS
+   ========================================================================== */
+
+#section-productos {
+    display: flex;
+    flex-direction: column;
+}
+
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+    margin-top: 0.5rem;
+    border-radius: var(--radius);
+    border: 1px solid var(--border-light);
+}
+
+#products-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 0.9rem;
+}
+
+#products-table th {
+    background-color: #f1f5f9;
+    color: var(--text-secondary);
+    font-weight: 600;
+    padding: 0.75rem 0.5rem;
+    border-bottom: 1px solid var(--border);
+    white-space: nowrap;
+}
+
+#products-table td {
+    padding: 0.6rem 0.5rem;
+    border-bottom: 1px solid var(--border-light);
+    vertical-align: top;
+}
+
+#products-table input {
+    width: 100%;
+    padding: 0.5rem 0.6rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    font-size: 0.88rem;
+}
+
+#products-table input:focus {
+    outline: none;
+    border-color: var(--primary);
+}
+
+#products-table input[readonly] {
+    background-color: var(--bg-main);
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.btn-delete-row {
+    background-color: var(--danger-light);
+    color: var(--danger);
+    border: 1px solid #fca5a5;
+    padding: 0.45rem 0.8rem;
+    border-radius: var(--radius);
+    cursor: pointer;
+    font-size: 0.82rem;
+    font-weight: 600;
+    transition: all 0.15s ease;
+}
+
+.btn-delete-row:hover {
+    background-color: var(--danger);
+    color: #ffffff;
+}
+
+.products-actions {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+}
+
+#btn-add-product {
+    background-color: var(--surface);
+    color: var(--primary);
+    border: 1.5px dashed var(--primary);
+    padding: 0.65rem 1.25rem;
+    border-radius: var(--radius);
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+}
+
+#btn-add-product:hover {
+    background-color: var(--primary-light);
+}
+
+/* ==========================================================================
+   RESUMEN DE CÁLCULOS
+   ========================================================================== */
+
+#section-resumen {
+    display: flex;
+    flex-direction: column;
+}
+
+.summary-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+    background: #f8fafc;
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius);
+    padding: 1.25rem;
+    max-width: 480px;
+    margin-left: auto;
+    width: 100%;
+}
+
+.summary-item {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+}
+
+.summary-item span:last-child {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.summary-total {
+    border-top: 2px solid var(--border);
+    padding-top: 0.75rem;
+    margin-top: 0.25rem;
+    font-size: 1.15rem;
+    color: var(--primary);
+}
+
+.summary-total strong:last-child {
+    font-size: 1.25rem;
+    color: var(--primary);
+}
+
+.form-actions {
+    text-align: center;
+    margin-top: 0.5rem;
+}
+
+#btn-generate-doc {
+    background-color: var(--primary);
+    color: #ffffff;
+    border: none;
+    padding: 0.9rem 2.5rem;
+    border-radius: var(--radius);
+    font-size: 1.05rem;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: var(--shadow);
+    transition: background-color 0.15s ease, transform 0.1s ease;
+}
+
+#btn-generate-doc:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-1px);
+}
+
+#btn-generate-doc:active {
+    transform: translateY(0);
+}
+
+/* ==========================================================================
+   DOCUMENTO GENERADO
+   ========================================================================== */
+
+#section-documento-generado {
+    margin-top: 3.5rem;
+    padding-top: 2rem;
+    border-top: 2px dashed var(--border);
+}
+
+#section-documento-generado h2 {
+    font-size: 1.5rem;
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.generated-document-sheet {
+    background: #ffffff;
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    padding: 2.5rem;
+    box-shadow: var(--shadow-lg);
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.doc-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1.5rem;
+    border-bottom: 2px solid var(--border-light);
+    padding-bottom: 1.5rem;
+}
+
+.doc-logo {
+    max-height: 80px;
+    max-width: 180px;
+    object-fit: contain;
+}
+
+.doc-business-info h2 {
+    font-size: 1.6rem;
+    color: var(--primary);
+    margin-bottom: 0.35rem;
+}
+
+.doc-business-info p {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    line-height: 1.4;
+}
+
+.doc-meta-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.doc-info-box {
+    background-color: #f8fafc;
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius);
+    padding: 1.25rem;
+}
+
+.doc-info-box h3 {
+    font-size: 1rem;
+    color: var(--primary);
+    margin-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border-light);
+    padding-bottom: 0.35rem;
+}
+
+.doc-info-box p {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.3rem;
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 0.2rem 0.55rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.status-pendiente {
+    background-color: #fef3c7;
+    color: #92400e;
+}
+
+.status-aprobada,
+.status-pagada {
+    background-color: #d1fae5;
+    color: #065f46;
+}
+
+.status-rechazada {
+    background-color: #fee2e2;
+    color: #991b1b;
+}
+
+.doc-items-section {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.doc-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+}
+
+.doc-table th {
+    background-color: #f1f5f9;
+    color: var(--text-secondary);
+    padding: 0.75rem 0.5rem;
+    border-bottom: 2px solid var(--border);
+    text-align: left;
+}
+
+.doc-table th:last-child,
+.doc-table td:last-child,
+.doc-table th:nth-child(3),
+.doc-table td:nth-child(3),
+.doc-table th:nth-child(4),
+.doc-table td:nth-child(4),
+.doc-table th:nth-child(5),
+.doc-table td:nth-child(5) {
+    text-align: right;
+}
+
+.doc-table td {
+    padding: 0.75rem 0.5rem;
+    border-bottom: 1px solid var(--border-light);
+    color: var(--text-primary);
+}
+
+.doc-summary-section {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.doc-summary-box {
+    width: 100%;
+    max-width: 360px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.doc-summary-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.92rem;
+    color: var(--text-secondary);
+}
+
+.doc-summary-total {
+    border-top: 2px solid var(--text-primary);
+    padding-top: 0.6rem;
+    margin-top: 0.25rem;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.doc-footer {
+    border-top: 1px solid var(--border-light);
+    padding-top: 1rem;
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+footer {
+    margin-top: 3rem;
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+/* ==========================================================================
+   RESPONSIVIDAD Y FORMATO DE IMPRESIÓN
+   ========================================================================== */
+
+@media (max-width: 768px) {
+    .doc-header {
+        flex-direction: column-reverse;
+    }
+
+    .doc-meta-section {
+        grid-template-columns: 1fr;
+    }
+
+    .summary-list,
+    .doc-summary-box {
+        max-width: 100%;
+    }
+}
+
+@media print {
+    header,
+    #invoice-form,
+    footer,
+    #section-documento-generado h2 {
+        display: none !important;
+    }
+
+    body {
+        background: #ffffff;
+        padding: 0;
+    }
+
+    #section-documento-generado {
+        margin: 0;
+        padding: 0;
+        border: none;
+    }
+
+    .generated-document-sheet {
+        box-shadow: none;
+        border: none;
+        padding: 0;
+    }
+}
