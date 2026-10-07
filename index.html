@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InvoiceHub</title>
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+    <header>
+        <h1>InvoiceHub</h1>
+    </header>
+
+    <main>
+        <form id="invoice-form" novalidate>
+            <!-- 1. Datos del negocio -->
+            <fieldset class="form-section" id="section-negocio">
+                <legend>1. Datos del negocio</legend>
+
+                <div class="form-group">
+                    <label for="business-name">Nombre del negocio *</label>
+                    <input type="text" id="business-name" name="business_name" required>
+                    <span class="error-message" id="error-business-name"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="business-rnc">RNC o identificación *</label>
+                    <input type="text" id="business-rnc" name="business_rnc" required>
+                    <span class="error-message" id="error-business-rnc"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="business-phone">Teléfono *</label>
+                    <input type="tel" id="business-phone" name="business_phone" required>
+                    <span class="error-message" id="error-business-phone"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="business-email">Correo electrónico *</label>
+                    <input type="email" id="business-email" name="business_email" required>
+                    <span class="error-message" id="error-business-email"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="business-address">Dirección *</label>
+                    <input type="text" id="business-address" name="business_address" required>
+                    <span class="error-message" id="error-business-address"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="business-logo">URL del logo</label>
+                    <input type="url" id="business-logo" name="business_logo" placeholder="https://ejemplo.com/logo.png">
+                    <span class="error-message" id="error-business-logo"></span>
+                </div>
+            </fieldset>
+
+            <!-- 2. Datos del cliente -->
+            <fieldset class="form-section" id="section-cliente">
+                <legend>2. Datos del cliente</legend>
+
+                <div class="form-group">
+                    <label for="client-name">Nombre del cliente *</label>
+                    <input type="text" id="client-name" name="client_name" required>
+                    <span class="error-message" id="error-client-name"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="client-rnc">Identificación o RNC *</label>
+                    <input type="text" id="client-rnc" name="client_rnc" required>
+                    <span class="error-message" id="error-client-rnc"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="client-phone">Teléfono *</label>
+                    <input type="tel" id="client-phone" name="client_phone" required>
+                    <span class="error-message" id="error-client-phone"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="client-email">Correo electrónico *</label>
+                    <input type="email" id="client-email" name="client_email" required>
+                    <span class="error-message" id="error-client-email"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="client-address">Dirección *</label>
+                    <input type="text" id="client-address" name="client_address" required>
+                    <span class="error-message" id="error-client-address"></span>
+                </div>
+            </fieldset>
+
+            <!-- 3. Datos generales de la cotización o factura -->
+            <fieldset class="form-section" id="section-generales">
+                <legend>3. Datos generales de la cotización o factura</legend>
+
+                <div class="form-group">
+                    <label for="document-type">Tipo de documento *</label>
+                    <select id="document-type" name="document_type" required>
+                        <option value="Cotización" selected>Cotización</option>
+                        <option value="Factura">Factura</option>
+                    </select>
+                    <span class="error-message" id="error-document-type"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="document-number">Número de documento *</label>
+                    <input type="text" id="document-number" name="document_number" required>
+                    <span class="error-message" id="error-document-number"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="issue-date">Fecha de emisión *</label>
+                    <input type="date" id="issue-date" name="issue_date" required>
+                    <span class="error-message" id="error-issue-date"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="due-date">Fecha de vencimiento *</label>
+                    <input type="date" id="due-date" name="due_date" required>
+                    <span class="error-message" id="error-due-date"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="document-status">Estado *</label>
+                    <select id="document-status" name="document_status" required>
+                        <option value="Pendiente" selected>Pendiente</option>
+                        <option value="Aprobada">Aprobada</option>
+                        <option value="Rechazada">Rechazada</option>
+                    </select>
+                    <span class="error-message" id="error-document-status"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="currency">Moneda *</label>
+                    <select id="currency" name="currency" required>
+                        <option value="DOP" selected>DOP</option>
+                        <option value="USD">USD</option>
+                        <option value="EUR">EUR</option>
+                    </select>
+                    <span class="error-message" id="error-currency"></span>
+                </div>
+            </fieldset>
+
+            <!-- 4. Productos o servicios -->
+            <fieldset class="form-section" id="section-productos">
+                <legend>4. Productos o servicios</legend>
+
+                <div class="table-responsive">
+                    <table id="products-table">
+                        <thead>
+                            <tr>
+                                <th>Descripción *</th>
+                                <th>Cantidad *</th>
+                                <th>Precio unitario *</th>
+                                <th>% Descuento</th>
+                                <th>Subtotal</th>
+                                <th>Acción</th>
+                            </tr>
+                        </thead>
+                        <tbody id="products-list">
+                            <tr class="product-row">
+                                <td>
+                                    <input type="text" name="product_description" class="product-description" placeholder="Descripción" required>
+                                    <span class="error-message"></span>
+                                </td>
+                                <td>
+                                    <input type="number" name="product_quantity" class="product-quantity" min="1" step="1" value="1" required>
+                                    <span class="error-message"></span>
+                                </td>
+                                <td>
+                                    <input type="number" name="product_price" class="product-price" min="0.01" step="0.01" value="0.00" required>
+                                    <span class="error-message"></span>
+                                </td>
+                                <td>
+                                    <input type="number" name="product_discount" class="product-discount" min="0" max="100" step="0.01" value="0">
+                                    <span class="error-message"></span>
+                                </td>
+                                <td>
+                                    <input type="text" name="product_subtotal" class="product-subtotal" value="0.00" readonly>
+                                </td>
+                                <td>
+                                    <button type="button" class="btn-delete-row">Eliminar</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="products-actions">
+                    <button type="button" id="btn-add-product">Agregar producto o servicio</button>
+                    <span class="error-message" id="error-products-table"></span>
+                </div>
+            </fieldset>
+
+            <!-- 5. Configuración de impuestos y descuentos -->
+            <fieldset class="form-section" id="section-impuestos-descuentos">
+                <legend>5. Configuración de impuestos y descuentos</legend>
+
+                <div class="form-group checkbox-group">
+                    <input type="checkbox" id="apply-tax" name="apply_tax">
+                    <label for="apply-tax">Aplicar impuesto</label>
+                </div>
+
+                <div class="form-group">
+                    <label for="tax-percentage">Porcentaje de impuesto (%)</label>
+                    <input type="number" id="tax-percentage" name="tax_percentage" min="0" max="100" step="0.01" placeholder="Ej. 18" disabled>
+                    <span class="error-message" id="error-tax-percentage"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="general-discount">Descuento general (%)</label>
+                    <input type="number" id="general-discount" name="general_discount" min="0" max="100" step="0.01" placeholder="0" value="0">
+                    <span class="error-message" id="error-general-discount"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="discount-application">Aplicación del descuento *</label>
+                    <select id="discount-application" name="discount_application" required>
+                        <option value="antes" selected>Aplicar descuento antes del impuesto</option>
+                        <option value="despues">Aplicar descuento después del impuesto</option>
+                    </select>
+                    <span class="error-message" id="error-discount-application"></span>
+                </div>
+            </fieldset>
+
+            <!-- 6. Resumen de cálculos -->
+            <fieldset class="form-section" id="section-resumen">
+                <legend>6. Resumen de cálculos</legend>
+
+                <div class="summary-list">
+                    <div class="summary-item">
+                        <span>Cantidad de productos o servicios:</span>
+                        <span id="summary-items-count">1</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>Subtotal bruto:</span>
+                        <span id="summary-gross-subtotal">0.00</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>Descuento por productos:</span>
+                        <span id="summary-product-discounts">0.00</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>Subtotal después de descuentos individuales:</span>
+                        <span id="summary-subtotal-after-discounts">0.00</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>Descuento general:</span>
+                        <span id="summary-general-discount">0.00</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>Impuesto:</span>
+                        <span id="summary-tax">0.00</span>
+                    </div>
+                    <div class="summary-item summary-total">
+                        <strong>Total final:</strong>
+                        <strong id="summary-final-total">0.00</strong>
+                    </div>
+                </div>
+            </fieldset>
+
+            <!-- Botón Generar documento -->
+            <div class="form-actions">
+                <button type="submit" id="btn-generate-doc">Generar documento</button>
+            </div>
+        </form>
+
+        <!-- Sección Documento generado -->
+        <section id="section-documento-generado">
+            <h2>Documento generado</h2>
+            <div id="documento-generado-container">
+                <!-- Se generará dinámicamente con JavaScript -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 InvoiceHub</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+   
+</html>
