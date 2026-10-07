@@ -139,6 +139,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const rows = refs.productsList.querySelectorAll('.product-row');
             if (rows.length <= 1) {
                 setError(null, 'error-products-table', 'Debe existir al menos un producto o servicio en la cotización o factura.');
+                alert('Debe existir al menos un producto o servicio en la cotización o factura.');
                 return;
             }
             const row = event.target.closest('.product-row');
@@ -245,3 +246,4 @@ document.addEventListener('DOMContentLoaded', () => {
     onTaxCheckboxChange();
     refreshSummary();
 });
+
