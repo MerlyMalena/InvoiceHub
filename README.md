@@ -31,10 +31,15 @@ Aplicación web desarrollada con HTML, CSS y JavaScript vanilla para la creació
 
 ```text
 InvoiceHub/
-├── index.html    # Estructura principal y formulario
-├── styles.css    # Estilos visuales y diseño responsivo
-├── script.js    # Lógica de cálculo, validaciones y manipulación del DOM
-└── README.md     # Documentación del proyecto
+├── index.html        # Estructura principal y formulario
+├── styles.css        # Estilos visuales y diseño responsivo
+├── js/
+│   ├── utils.js        # Funciones auxiliares y formateo
+│   ├── calculations.js # Fórmulas de cálculo y totales
+│   ├── dom.js          # Manipulación del DOM y renderizado
+│   ├── validations.js  # Validaciones del formulario
+│   └── app.js          # Orquestador principal y eventos
+└── README.md         # Documentación del proyecto
 ```
 
 ## Instrucciones de Uso
