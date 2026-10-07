@@ -49,3 +49,18 @@ btnAddProduct.addEventListener('click', () => {
     const newRow = createProductRow();
     productsList.appendChild(newRow);
 })
+
+// Eliminar fila de producto
+productsList.addEventListener('click', (event) => {
+    if (event.target.classList.contains('btn-delete-row')) {
+        if (productsList.rows.length <= 1) {
+            alert('Debe existir al menos un producto o servicio en la cotización o factura.');
+            return;
+        }
+        else if (!confirm('¿Está seguro de que desea eliminar este producto?')) {
+            return;
+        }
+        const row = event.target.closest('.product-row');
+        productsList.removeChild(row);
+    }
+});
