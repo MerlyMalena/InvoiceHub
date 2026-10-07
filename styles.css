@@ -1,27 +1,28 @@
 /* ==========================================================================
-   InvoiceHub - Estilos Profesionales y Responsivos
+   InvoiceHub - Tema Rosita Pastel & Estilos Responsivos
    ========================================================================== */
 
 :root {
-    --primary: #1e40af;
-    --primary-hover: #1d4ed8;
-    --primary-light: #eff6ff;
-    --secondary: #0f766e;
-    --danger: #dc2626;
-    --danger-hover: #b91c1c;
-    --danger-light: #fef2f2;
-    --bg-main: #f8fafc;
-    --surface: #ffffff;
-    --text-primary: #0f172a;
-    --text-secondary: #475569;
-    --text-muted: #94a3b8;
-    --border: #cbd5e1;
-    --border-light: #e2e8f0;
-    --radius: 8px;
-    --radius-lg: 12px;
-    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-    --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --primary: #db2777;           /* Rosa frambuesa/fucsia para botones y títulos */
+    --primary-hover: #be185d;     /* Rosa oscuro para hovers */
+    --primary-light: #fdf2f8;     /* Rosa pastel muy suave para fondos de tarjetas */
+    --primary-pastel: #f472b6;    /* Rosa pastel para degradados y acentos */
+    --secondary: #9d174d;
+    --danger: #e11d48;
+    --danger-hover: #be123c;
+    --danger-light: #fff1f2;
+    --bg-main: #fff1f5;           /* Fondo general rosita pastel suave */
+    --surface: #ffffff;           /* Fondo blanco de tarjetas */
+    --text-primary: #371b26;      /* Texto oscuro con tinte ciruela para máxima nitidez */
+    --text-secondary: #6b4355;    /* Texto secundario cálido y legible */
+    --text-muted: #9d6b82;        /* Texto sutil */
+    --border: #fbcfe8;            /* Borde rosita pastel */
+    --border-light: #fce7f3;      /* Borde rosa pastel claro */
+    --radius: 10px;
+    --radius-lg: 16px;
+    --shadow-sm: 0 2px 4px rgba(219, 39, 119, 0.06);
+    --shadow: 0 4px 12px rgba(219, 39, 119, 0.1);
+    --shadow-lg: 0 10px 25px rgba(219, 39, 119, 0.12);
 }
 
 * {
@@ -38,19 +39,21 @@ body {
     padding-bottom: 4rem;
 }
 
-header {
-    background: linear-gradient(135deg, var(--primary), #1e3a8a);
+/* Encabezado principal de la página */
+.site-header {
+    background: linear-gradient(135deg, var(--primary-pastel), var(--primary));
     color: #ffffff;
-    padding: 2rem 1.5rem;
+    padding: 2.2rem 1.5rem;
     text-align: center;
     box-shadow: var(--shadow);
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
 }
 
-header h1 {
-    font-size: 2.2rem;
-    font-weight: 700;
+.site-header h1 {
+    font-size: 2.3rem;
+    font-weight: 800;
     letter-spacing: -0.5px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
 }
 
 main {
@@ -66,46 +69,53 @@ main {
 #invoice-form {
     display: flex;
     flex-direction: column;
-    gap: 1.75rem;
+    gap: 2rem;
 }
 
 .form-section {
     background: var(--surface);
-    border: 1px solid var(--border-light);
+    border: 1.5px solid var(--border);
     border-radius: var(--radius-lg);
-    padding: 1.5rem;
+    padding: 1.75rem;
     box-shadow: var(--shadow-sm);
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 1.25rem;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.form-section:hover {
+    box-shadow: var(--shadow);
 }
 
 .form-section legend {
-    font-size: 1.15rem;
-    font-weight: 600;
+    font-size: 1.2rem;
+    font-weight: 700;
     color: var(--primary);
-    padding: 0 0.5rem;
-    border-bottom: 2px solid var(--primary-light);
-    width: 100%;
+    padding: 0 0.75rem;
+    background: #ffffff;
+    border-radius: 6px;
+    border: 1.5px solid var(--border);
     margin-bottom: 0.5rem;
 }
 
+/* Campos de entrada */
 .form-group {
     display: flex;
     flex-direction: column;
-    gap: 0.35rem;
+    gap: 0.4rem;
 }
 
 .form-group label {
-    font-size: 0.875rem;
+    font-size: 0.88rem;
     font-weight: 600;
     color: var(--text-secondary);
 }
 
 .form-group input,
 .form-group select {
-    padding: 0.65rem 0.85rem;
-    border: 1px solid var(--border);
+    padding: 0.7rem 0.9rem;
+    border: 1.5px solid var(--border);
     border-radius: var(--radius);
     font-size: 0.95rem;
     color: var(--text-primary);
@@ -117,11 +127,11 @@ main {
 .form-group select:focus {
     outline: none;
     border-color: var(--primary);
-    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+    box-shadow: 0 0 0 3px rgba(244, 114, 182, 0.25);
 }
 
 .form-group input:disabled {
-    background-color: var(--bg-main);
+    background-color: var(--primary-light);
     color: var(--text-muted);
     cursor: not-allowed;
     border-color: var(--border-light);
@@ -135,8 +145,8 @@ main {
 }
 
 .checkbox-group input[type="checkbox"] {
-    width: 1.2rem;
-    height: 1.2rem;
+    width: 1.25rem;
+    height: 1.25rem;
     cursor: pointer;
     accent-color: var(--primary);
 }
@@ -145,12 +155,14 @@ main {
     margin: 0;
     cursor: pointer;
     font-size: 0.95rem;
+    color: var(--text-primary);
 }
 
+/* Mensajes de validación */
 .error-message {
     color: var(--danger);
-    font-size: 0.78rem;
-    font-weight: 500;
+    font-size: 0.8rem;
+    font-weight: 600;
     min-height: 1rem;
     display: block;
     margin-top: 0.2rem;
@@ -162,7 +174,7 @@ main {
 }
 
 .input-error:focus {
-    box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.15) !important;
+    box-shadow: 0 0 0 3px rgba(225, 29, 72, 0.2) !important;
 }
 
 /* ==========================================================================
@@ -179,7 +191,7 @@ main {
     overflow-x: auto;
     margin-top: 0.5rem;
     border-radius: var(--radius);
-    border: 1px solid var(--border-light);
+    border: 1.5px solid var(--border);
 }
 
 #products-table {
@@ -190,24 +202,25 @@ main {
 }
 
 #products-table th {
-    background-color: #f1f5f9;
-    color: var(--text-secondary);
-    font-weight: 600;
-    padding: 0.75rem 0.5rem;
-    border-bottom: 1px solid var(--border);
+    background-color: #fce7f3;
+    color: #831843;
+    font-weight: 700;
+    padding: 0.85rem 0.6rem;
+    border-bottom: 2px solid var(--border);
     white-space: nowrap;
 }
 
 #products-table td {
-    padding: 0.6rem 0.5rem;
+    padding: 0.65rem 0.6rem;
     border-bottom: 1px solid var(--border-light);
     vertical-align: top;
+    background-color: #ffffff;
 }
 
 #products-table input {
     width: 100%;
-    padding: 0.5rem 0.6rem;
-    border: 1px solid var(--border);
+    padding: 0.55rem 0.65rem;
+    border: 1.5px solid var(--border);
     border-radius: var(--radius);
     font-size: 0.88rem;
 }
@@ -215,23 +228,24 @@ main {
 #products-table input:focus {
     outline: none;
     border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(244, 114, 182, 0.2);
 }
 
 #products-table input[readonly] {
-    background-color: var(--bg-main);
-    font-weight: 600;
-    color: var(--text-primary);
+    background-color: var(--primary-light);
+    font-weight: 700;
+    color: var(--primary);
 }
 
 .btn-delete-row {
     background-color: var(--danger-light);
     color: var(--danger);
-    border: 1px solid #fca5a5;
-    padding: 0.45rem 0.8rem;
+    border: 1px solid #fecdd3;
+    padding: 0.45rem 0.85rem;
     border-radius: var(--radius);
     cursor: pointer;
     font-size: 0.82rem;
-    font-weight: 600;
+    font-weight: 700;
     transition: all 0.15s ease;
 }
 
@@ -249,19 +263,21 @@ main {
 }
 
 #btn-add-product {
-    background-color: var(--surface);
+    background-color: var(--primary-light);
     color: var(--primary);
-    border: 1.5px dashed var(--primary);
-    padding: 0.65rem 1.25rem;
+    border: 1.5px dashed var(--primary-pastel);
+    padding: 0.75rem 1.4rem;
     border-radius: var(--radius);
-    font-weight: 600;
-    font-size: 0.9rem;
+    font-weight: 700;
+    font-size: 0.92rem;
     cursor: pointer;
-    transition: background-color 0.15s ease;
+    transition: all 0.15s ease;
 }
 
 #btn-add-product:hover {
-    background-color: var(--primary-light);
+    background-color: #fce7f3;
+    border-color: var(--primary);
+    transform: translateY(-1px);
 }
 
 /* ==========================================================================
@@ -276,14 +292,15 @@ main {
 .summary-list {
     display: flex;
     flex-direction: column;
-    gap: 0.65rem;
-    background: #f8fafc;
-    border: 1px solid var(--border-light);
+    gap: 0.75rem;
+    background: var(--primary-light);
+    border: 1.5px solid var(--border);
     border-radius: var(--radius);
-    padding: 1.25rem;
+    padding: 1.5rem;
     max-width: 480px;
     margin-left: auto;
     width: 100%;
+    box-shadow: var(--shadow-sm);
 }
 
 .summary-item {
@@ -294,44 +311,46 @@ main {
 }
 
 .summary-item span:last-child {
-    font-weight: 600;
+    font-weight: 700;
     color: var(--text-primary);
 }
 
 .summary-total {
     border-top: 2px solid var(--border);
-    padding-top: 0.75rem;
-    margin-top: 0.25rem;
-    font-size: 1.15rem;
+    padding-top: 0.85rem;
+    margin-top: 0.35rem;
+    font-size: 1.2rem;
     color: var(--primary);
 }
 
 .summary-total strong:last-child {
-    font-size: 1.25rem;
+    font-size: 1.3rem;
     color: var(--primary);
 }
 
+/* Botón principal */
 .form-actions {
     text-align: center;
     margin-top: 0.5rem;
 }
 
 #btn-generate-doc {
-    background-color: var(--primary);
+    background: linear-gradient(135deg, var(--primary-pastel), var(--primary));
     color: #ffffff;
     border: none;
-    padding: 0.9rem 2.5rem;
-    border-radius: var(--radius);
-    font-size: 1.05rem;
-    font-weight: 700;
+    padding: 1rem 3rem;
+    border-radius: 999px;
+    font-size: 1.1rem;
+    font-weight: 800;
     cursor: pointer;
-    box-shadow: var(--shadow);
-    transition: background-color 0.15s ease, transform 0.1s ease;
+    box-shadow: 0 4px 15px rgba(219, 39, 119, 0.3);
+    transition: all 0.2s ease;
 }
 
 #btn-generate-doc:hover {
-    background-color: var(--primary-hover);
-    transform: translateY(-1px);
+    background: linear-gradient(135deg, var(--primary), var(--primary-hover));
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(219, 39, 119, 0.4);
 }
 
 #btn-generate-doc:active {
@@ -339,25 +358,26 @@ main {
 }
 
 /* ==========================================================================
-   DOCUMENTO GENERADO
+   DOCUMENTO GENERADO (VISTA PREVIA DE FACTURA/COTIZACIÓN)
    ========================================================================== */
 
 #section-documento-generado {
-    margin-top: 3.5rem;
-    padding-top: 2rem;
+    margin-top: 4rem;
+    padding-top: 2.5rem;
     border-top: 2px dashed var(--border);
 }
 
 #section-documento-generado h2 {
-    font-size: 1.5rem;
-    color: var(--text-primary);
-    margin-bottom: 1.5rem;
+    font-size: 1.6rem;
+    color: var(--primary);
+    margin-bottom: 1.75rem;
     text-align: center;
+    font-weight: 800;
 }
 
 .generated-document-sheet {
     background: #ffffff;
-    border: 1px solid var(--border-light);
+    border: 2px solid var(--border);
     border-radius: var(--radius-lg);
     padding: 2.5rem;
     box-shadow: var(--shadow-lg);
@@ -366,33 +386,52 @@ main {
     gap: 2rem;
 }
 
+/* ENCABEZADO DE LA FACTURA CON LETRAS BLANCAS Y FONDO ROSITA */
 .doc-header {
+    background: linear-gradient(135deg, var(--primary-pastel), var(--primary)) !important;
+    color: #ffffff !important;
+    border-radius: var(--radius);
+    padding: 1.75rem;
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: center;
     gap: 1.5rem;
-    border-bottom: 2px solid var(--border-light);
-    padding-bottom: 1.5rem;
+    box-shadow: var(--shadow);
+    border-bottom: none !important;
 }
 
 .doc-logo {
-    max-height: 80px;
-    max-width: 180px;
+    max-height: 90px;
+    max-width: 190px;
     object-fit: contain;
+    background: #ffffff;
+    padding: 6px;
+    border-radius: var(--radius);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+/* Letras blancas nítidas para datos del negocio */
+.doc-business-info {
+    color: #ffffff !important;
 }
 
 .doc-business-info h2 {
-    font-size: 1.6rem;
-    color: var(--primary);
-    margin-bottom: 0.35rem;
+    font-size: 1.8rem;
+    color: #ffffff !important;
+    margin-bottom: 0.4rem;
+    font-weight: 800;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
 }
 
 .doc-business-info p {
-    font-size: 0.88rem;
-    color: var(--text-secondary);
-    line-height: 1.4;
+    font-size: 0.92rem;
+    color: #ffffff !important;
+    line-height: 1.5;
+    font-weight: 500;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.12);
 }
 
+/* Cajas de metadatos */
 .doc-meta-section {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -400,32 +439,38 @@ main {
 }
 
 .doc-info-box {
-    background-color: #f8fafc;
-    border: 1px solid var(--border-light);
+    background-color: var(--primary-light);
+    border: 1.5px solid var(--border);
     border-radius: var(--radius);
-    padding: 1.25rem;
+    padding: 1.4rem;
 }
 
 .doc-info-box h3 {
-    font-size: 1rem;
+    font-size: 1.05rem;
     color: var(--primary);
-    margin-bottom: 0.75rem;
-    border-bottom: 1px solid var(--border-light);
-    padding-bottom: 0.35rem;
+    margin-bottom: 0.85rem;
+    border-bottom: 1.5px solid var(--border);
+    padding-bottom: 0.4rem;
+    font-weight: 700;
 }
 
 .doc-info-box p {
-    font-size: 0.88rem;
+    font-size: 0.9rem;
     color: var(--text-secondary);
-    margin-bottom: 0.3rem;
+    margin-bottom: 0.4rem;
 }
 
+.doc-info-box p strong {
+    color: var(--text-primary);
+}
+
+/* Badges de estado */
 .status-badge {
     display: inline-block;
-    padding: 0.2rem 0.55rem;
+    padding: 0.25rem 0.65rem;
     border-radius: 999px;
     font-size: 0.75rem;
-    font-weight: 700;
+    font-weight: 800;
     text-transform: uppercase;
 }
 
@@ -445,23 +490,27 @@ main {
     color: #991b1b;
 }
 
+/* Tabla del documento generado */
 .doc-items-section {
     width: 100%;
     overflow-x: auto;
+    border-radius: var(--radius);
+    border: 1.5px solid var(--border);
 }
 
 .doc-table {
     width: 100%;
     border-collapse: collapse;
-    font-size: 0.9rem;
+    font-size: 0.92rem;
 }
 
 .doc-table th {
-    background-color: #f1f5f9;
-    color: var(--text-secondary);
-    padding: 0.75rem 0.5rem;
+    background-color: #fce7f3;
+    color: #831843;
+    padding: 0.85rem 0.6rem;
     border-bottom: 2px solid var(--border);
     text-align: left;
+    font-weight: 700;
 }
 
 .doc-table th:last-child,
@@ -476,9 +525,10 @@ main {
 }
 
 .doc-table td {
-    padding: 0.75rem 0.5rem;
+    padding: 0.8rem 0.6rem;
     border-bottom: 1px solid var(--border-light);
     color: var(--text-primary);
+    background-color: #ffffff;
 }
 
 .doc-summary-section {
@@ -488,40 +538,54 @@ main {
 
 .doc-summary-box {
     width: 100%;
-    max-width: 360px;
+    max-width: 380px;
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 0.6rem;
+    background: var(--primary-light);
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.4rem;
 }
 
 .doc-summary-row {
     display: flex;
     justify-content: space-between;
-    font-size: 0.92rem;
+    font-size: 0.94rem;
     color: var(--text-secondary);
 }
 
-.doc-summary-total {
-    border-top: 2px solid var(--text-primary);
-    padding-top: 0.6rem;
-    margin-top: 0.25rem;
-    font-size: 1.15rem;
+.doc-summary-row span:last-child {
     font-weight: 700;
+    color: var(--text-primary);
+}
+
+.doc-summary-total {
+    border-top: 2px solid var(--primary);
+    padding-top: 0.75rem;
+    margin-top: 0.35rem;
+    font-size: 1.25rem;
+    font-weight: 800;
     color: var(--primary);
 }
 
+.doc-summary-total span:last-child {
+    color: var(--primary);
+    font-size: 1.3rem;
+}
+
 .doc-footer {
-    border-top: 1px solid var(--border-light);
-    padding-top: 1rem;
+    border-top: 1.5px solid var(--border);
+    padding-top: 1.2rem;
     text-align: center;
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     color: var(--text-muted);
 }
 
 footer {
-    margin-top: 3rem;
+    margin-top: 3.5rem;
     text-align: center;
-    font-size: 0.85rem;
+    font-size: 0.88rem;
     color: var(--text-muted);
 }
 
@@ -532,6 +596,7 @@ footer {
 @media (max-width: 768px) {
     .doc-header {
         flex-direction: column-reverse;
+        text-align: center;
     }
 
     .doc-meta-section {
@@ -545,7 +610,7 @@ footer {
 }
 
 @media print {
-    header,
+    .site-header,
     #invoice-form,
     footer,
     #section-documento-generado h2 {
@@ -569,4 +634,3 @@ footer {
         padding: 0;
     }
 }
-
