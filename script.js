@@ -3,6 +3,10 @@ const btnAddProduct = document.getElementById('btn-add-product');
 const productsList = document.getElementById('products-list');
 const currencySelect = document.getElementById('currency');
 
+// Sección 3: Datos Generales
+const documentTypeSelect = document.getElementById('document-type');
+const documentStatusSelect = document.getElementById('document-status');
+
 // Sección 5: Impuestos y Descuentos
 const applyTaxCheckbox = document.getElementById('apply-tax');
 const taxPercentageInput = document.getElementById('tax-percentage');
@@ -26,6 +30,35 @@ function formatMoney(amount, currency) {
         maximumFractionDigits: 2
     });
     return `${currency} ${formatted}`;
+}
+
+// Adaptar las opciones de Estado según Tipo de Documento (DOM Puro)
+function updateStatusOptions() {
+    const type = documentTypeSelect.value;
+    const currentStatus = documentStatusSelect.value;
+
+    documentStatusSelect.replaceChildren();
+
+    let options = [];
+    if (type === 'Cotización') {
+        options = ['Pendiente', 'Aprobada', 'Rechazada'];
+    } else {
+        options = ['Pendiente', 'Pagada'];
+    }
+
+    options.forEach(optVal => {
+        const option = document.createElement('option');
+        option.value = optVal;
+        option.textContent = optVal;
+        if (optVal === currentStatus) {
+            option.selected = true;
+        }
+        documentStatusSelect.appendChild(option);
+    });
+
+    if (!options.includes(currentStatus)) {
+        documentStatusSelect.value = options[0];
+    }
 }
 
 // Función auxiliar para crear celdas de inputs sin innerHTML
@@ -180,6 +213,8 @@ function handleTaxCheckbox() {
 }
 
 // Event Listeners
+documentTypeSelect.addEventListener('change', updateStatusOptions);
+
 btnAddProduct.addEventListener('click', () => { 
     const newRow = createProductRow();
     productsList.appendChild(newRow);
@@ -221,5 +256,6 @@ discountApplicationSelect.addEventListener('change', updateSummary);
 currencySelect.addEventListener('change', updateSummary);
 
 // Inicializar al cargar
+updateStatusOptions();
 handleTaxCheckbox();
 updateSummary();
